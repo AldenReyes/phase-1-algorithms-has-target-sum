@@ -1,5 +1,16 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  let i = 0;
+  while (i <= array.length) {
+    let number_to_check = array.pop();
+    for (const number of array) {
+      if (number + number_to_check === target) {
+        return true;
+      }
+    }
+    array.unshift(number_to_check);
+    i++;
+  }
+  return false;
 }
 
 /* 
@@ -8,6 +19,10 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  1. take the last element of the input array (pop)
+  2. for loop, iterating through elements, adding and checking the value to target
+  3. if true return true
+  4. continue until all numbers have been processed (pop element and compare then unshift it, set a counter equal to array length to control number of iterations)
 */
 
 /*
