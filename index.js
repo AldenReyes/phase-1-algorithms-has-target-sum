@@ -1,17 +1,38 @@
-function hasTargetSum(array, target) {
-  let i = 0;
-  while (i <= array.length) {
-    let number_to_check = array.pop();
-    for (const number of array) {
-      if (number + number_to_check === target) {
-        return true;
-      }
-    }
-    array.unshift(number_to_check);
-    i++;
-  }
-  return false;
-}
+// 1st attempt - O(n^2)
+// function hasTargetSum(array, target) {
+//   let i = 0;
+//   while (i <= array.length) {
+//     let number_to_check = array.pop();
+//     for (const number of array) {
+//       if (number + number_to_check === target) {
+//         return true;
+//       }
+//     }
+//     array.unshift(number_to_check);
+//     i++;
+//   }
+//   return false;
+// }
+
+//2nd attempt after learning two-pointer technique - O(n log n)
+// const hasTargetSum = (array, target) => {
+//   array.sort((a, b) => a - b);
+//   let left = 0;
+//   let right = array.length - 1;
+
+//   while (left < right) {
+//     const sum = array[left] + array[right];
+
+//     if (sum === target) {
+//       return true;
+//     } else if (sum < target) {
+//       left += 1;
+//     } else {
+//       right -= 1;
+//     }
+//   }
+//   return false;
+// };
 
 /* 
   Write the Big O time complexity of your function here
